@@ -26,7 +26,7 @@ function updateTimer() {
 
     if (seconds <= 0) {
         stopTimer();
-        alert("Timer complete!"); // You can customize the action when the timer completes
+        toggleRangeAndResetTimer();
         return;
     }
 
@@ -38,3 +38,10 @@ function changeRange() {
     const rangeButton = document.getElementById('rangeButton');
     rangeButton.textContent = rangeToggle ? "1-2" : "1-3";
 }
+
+function toggleRangeAndResetTimer() {
+    changeRange();
+    startTimer(30);
+}
+
+
