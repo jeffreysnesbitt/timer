@@ -12,7 +12,7 @@ function stopTimer() {
 function updateTimer() {
     seconds--;
 
-    if (seconds < 0) {
+    if (seconds <= 0) {
         seconds = 4;
     }
 
