@@ -1,6 +1,6 @@
 let timerInterval;
 let seconds = 0;
-let selectedTimer = 30; // Default timer duration in seconds
+let selectedTimer = 2; // Default timer duration in seconds
 let rangeCombinationIndex = 0;
 const rangeCombinations = ["1-2", "1-3", "1-4", "2-3", "2-4", "2-1", "3-4", "3-1", "3-2", "4-1", "4-2", "4-3"];
 
