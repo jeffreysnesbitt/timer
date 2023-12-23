@@ -1,5 +1,5 @@
 let timer;
-let seconds = 4;
+let seconds = 0;
 let isRunning = false;
 let buttonText = '1-2';
 
@@ -9,7 +9,7 @@ function setTimer(timerValue) {
 }
 
 function resetTimer() {
-    seconds = 4;
+    stopTimer();
     document.getElementById('timer').textContent = seconds;
 }
 
@@ -28,15 +28,13 @@ function updateTimer() {
         seconds--;
 
         if (seconds <= 0) {
-            seconds = buttonText.startsWith('2') ? 4 : 2;
-            stopTimer();
+            resetTimer();
             changeButtonText();
         }
 
         document.getElementById('timer').textContent = seconds;
     }
 }
-
 
 function changeButtonText() {
     const startButton = document.getElementById('startButton');
