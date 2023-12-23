@@ -1,5 +1,5 @@
 let timerInterval;
-let seconds = 2; // 30 seconds timer
+let seconds = 4; // 30 seconds timer
 let isTimerRunning = false;
 
 function startTimer() {
@@ -13,6 +13,7 @@ function stopTimer() {
     if (isTimerRunning) {
         isTimerRunning = false;
         clearInterval(timerInterval);
+        resetTimer();
     }
 }
 
@@ -25,6 +26,7 @@ function updateTimer() {
 
     if (seconds <= 0) {
         stopTimer();
+        startTimer(); // Reset the timer to 30 seconds
         return;
     }
 
@@ -33,6 +35,6 @@ function updateTimer() {
 
 function resetTimer() {
     clearInterval(timerInterval);
-    seconds = 2;
+    seconds = 4;
     document.getElementById('timer').textContent = '00:30';
 }
