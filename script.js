@@ -1,6 +1,6 @@
 let timerInterval;
 let seconds = 0;
-let selectedTimer = 30; // Default timer duration in seconds
+let selectedTimer = 2; // Default timer duration in seconds
 let rangeToggle = true;
 
 function startTimer(duration) {
