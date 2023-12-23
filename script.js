@@ -1,7 +1,8 @@
 let timerInterval;
 let seconds = 0;
-let selectedTimer = 2; // Default timer duration in seconds
-let rangeToggle = true;
+let selectedTimer = 30; // Default timer duration in seconds
+let rangeCombinationIndex = 0;
+const rangeCombinations = ["1-2", "1-3", "1-4", "2-3", "2-4", "2-1", "3-4", "3-1", "3-2", "4-1", "4-2", "4-3"];
 
 function startTimer(duration) {
     selectedTimer = duration;
@@ -26,27 +27,18 @@ function updateTimer() {
 
     if (seconds <= 0) {
         stopTimer();
-        toggleRangeAndReset();
+        toggleRangeCombination();
+        startTimer(selectedTimer);
         return;
     }
 
     seconds--;
 }
 
-function toggleRangeAndReset() {
-    toggleRange();
-    startTimer(selectedTimer);
-}
-
-function toggleRange() {
-    rangeToggle = !rangeToggle;
+function toggleRangeCombination() {
+    rangeCombinationIndex = (rangeCombinationIndex + 1) % rangeCombinations.length;
     const rangeButton = document.getElementById('rangeButton');
-    rangeButton.textContent = rangeToggle ? "1-2" : "1-3";
-}
-
-function startTimerWithToggle(duration) {
-    startTimer(duration);
-    toggleRange();
+    rangeButton.textContent = rangeCombinations[rangeCombinationIndex];
 }
 
 
