@@ -3,37 +3,14 @@ let seconds = 4;
 let isRunning = false;
 let buttonText = '1-2';
 
-function setTimer(timerValue) {
-    seconds = timerValue;
-    document.getElementById('timer').textContent = seconds;
-}
-
 function startTimer() {
     isRunning = true;
-    timer = setInterval(updateTimer, 1000);
-}
-
-function stopTimer() {
-    clearInterval(timer);
-    isRunning = false;
-}
-
-function updateTimer() {
-    if (isRunning) {
-        seconds--;
-
-        if (seconds <= 0) {
-            seconds = buttonText.startsWith('2') ? 4 : 2;
-            stopTimer();
-            changeButtonText();
-        }
-
-        document.getElementById('timer').textContent = seconds;
-    }
-}
+@@ -28,8 +29,46 @@ function updateTimer() {
 
 function changeButtonText() {
     const startButton = document.getElementById('startButton');
+    if (startButton.textContent === '1-2') {
+        startButton.textContent = '1-3';
 
     switch (buttonText) {
         case '1-2':
@@ -76,4 +53,3 @@ function changeButtonText() {
 
     startButton.textContent = buttonText;
 }
-
