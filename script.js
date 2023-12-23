@@ -25,7 +25,7 @@ function stopTimer() {
     seconds = 0; // Reset the timer when stopped
     updateTimer(); // Update the displayed timer immediately
     document.getElementById('timerOptions').style.display = 'block';
-    document.getElementById('startButton').style.display = 'none';
+    document.getElementById('startButton').style.display = 'block';
     document.getElementById('stopButton').style.display = 'none';
     isTimerRunning = false;
 }
@@ -43,7 +43,7 @@ function updateTimer() {
         if (isTimerRunning) {
             document.getElementById('startButton').textContent = `Start`;
             document.getElementById('startButton').style.display = 'block';
-            selectedTimer = (selectedTimer === 2) ? 2 : 4; // Reset to 2 seconds for 30 seconds or 4 seconds for 60 seconds
+            selectedTimer = (selectedTimer === 2) ? 4 : 2; // Reset to 4 seconds for 30 seconds or 2 seconds for 60 seconds
         }
         return;
     }
