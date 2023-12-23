@@ -10,7 +10,7 @@ function setTimer(timerValue) {
 
 function resetTimer() {
     stopTimer();
-    document.getElementById('timer').textContent = seconds;
+    setTimer(getTimerValueFromButtonText(buttonText));
 }
 
 function startTimer() {
@@ -28,14 +28,15 @@ function updateTimer() {
         seconds--;
 
         if (seconds <= 0) {
-            resetTimer();
+            stopTimer();
             changeButtonText();
             setTimer(getTimerValueFromButtonText(buttonText));
         }
 
         document.getElementById('timer').textContent = seconds;
     }
-}
+
+  }
 
 function changeButtonText() {
     const startButton = document.getElementById('startButton');
