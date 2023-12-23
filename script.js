@@ -10,7 +10,11 @@ function startTimer(duration) {
     document.getElementById('startButton').textContent = `Start ${rangeCombinations[rangeCombinationIndex]}`;
     document.getElementById('startButton').style.display = 'block';
     document.getElementById('stopButton').style.display = 'block';
-    seconds = duration; // Set initial seconds to the specified duration
+}
+
+function startTimerWithToggle() {
+    document.getElementById('startButton').style.display = 'none';
+    seconds = selectedTimer; // Set initial seconds to the specified duration
     updateTimer(); // Update the displayed timer immediately
     timerInterval = setInterval(updateTimer, 1000);
 }
@@ -36,6 +40,7 @@ function updateTimer() {
         stopTimer();
         toggleRangeCombination();
         document.getElementById('startButton').textContent = `Start ${rangeCombinations[rangeCombinationIndex]}`;
+        document.getElementById('startButton').style.display = 'block';
         return;
     }
 
@@ -45,6 +50,4 @@ function updateTimer() {
 function toggleRangeCombination() {
     rangeCombinationIndex = (rangeCombinationIndex + 1) % rangeCombinations.length;
 }
-
-
 
