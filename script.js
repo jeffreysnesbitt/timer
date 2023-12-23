@@ -30,6 +30,7 @@ function updateTimer() {
         if (seconds <= 0) {
             resetTimer();
             changeButtonText();
+            setTimer(getTimerValueFromButtonText(buttonText));
         }
 
         document.getElementById('timer').textContent = seconds;
@@ -79,4 +80,10 @@ function changeButtonText() {
     }
 
     startButton.textContent = buttonText;
+}
+
+function getTimerValueFromButtonText(buttonText) {
+    // Assuming the button text is in the format 'X-Y'
+    const values = buttonText.split('-');
+    return parseInt(values[0]) * 10 + parseInt(values[1]);
 }
