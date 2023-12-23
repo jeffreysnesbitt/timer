@@ -1,6 +1,7 @@
 let timerInterval;
 let seconds = 0;
 let selectedTimer = 30; // Default timer duration in seconds
+let rangeToggle = true;
 
 function startTimer(duration) {
     selectedTimer = duration;
@@ -32,7 +33,8 @@ function updateTimer() {
     seconds--;
 }
 
-
-    const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
-    document.getElementById('timer').textContent = formattedTime;
+function changeRange() {
+    rangeToggle = !rangeToggle;
+    const rangeButton = document.getElementById('rangeButton');
+    rangeButton.textContent = rangeToggle ? "1-2" : "1-3";
 }
