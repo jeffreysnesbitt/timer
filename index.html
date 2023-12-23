@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Additional styles for the buttons */
+        /* Additional styles for the buttons and timer */
         .timer-options {
             text-align: center;
             padding: 20px;
@@ -24,7 +24,12 @@
 
         .timer-container {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 20px;
+        }
+
+        #timer {
+            font-size: 2em;
+            margin-top: 20px;
         }
     </style>
     <title>Timer App</title>
@@ -32,18 +37,11 @@
 <body>
 
 <div class="timer-options">
-    <button onclick="setTimer(2)">30 seconds</button>
-    <button onclick="setTimer(4)">60 seconds</button>
+    <button onclick="setTimer(30)">30 seconds</button>
+    <button onclick="setTimer(60)">60 seconds</button>
     <button onclick="resetTimer()">Reset</button>
 </div>
-<p></p>
-<p></p>    
-<p></p> 
-<p></p> 
-<p></p> 
-<p></p> 
-<p></p> 
-<p></p>     
+
 <div class="timer-container">
     <div id="timer"></div>
     <div id="startButton" onclick="startTimer()">1-2</div>
