@@ -30,11 +30,14 @@ function updateTimer() {
         if (seconds <= 0) {
             stopTimer();
             changeButtonText();
-            setTimer(getTimerValueFromButtonText(buttonText));
         }
 
         document.getElementById('timer').textContent = seconds;
-    }
+
+        // Set the timer to 0 when it reaches 0
+        if (seconds === 0) {
+            setTimer(0);
+        }
 }
 
 function changeButtonText() {
