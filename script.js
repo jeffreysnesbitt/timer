@@ -13,11 +13,10 @@ function stopTimer() {
 }
 
 function updateTimer() {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
+    const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
 
-    const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+    const formattedTime = `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
     document.getElementById('timer').textContent = formattedTime;
 
     if (seconds <= 0) {
@@ -31,9 +30,7 @@ function updateTimer() {
 function resetTimer() {
     clearInterval(timerInterval);
     seconds = 30;
-    document.getElementById('timer').textContent = '00:00:30';
+    document.getElementById('timer').textContent = '00:30';
     document.getElementById('startButton').style.display = 'block';
     document.getElementById('stopButton').style.display = 'none';
 }
-
-
