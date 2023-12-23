@@ -1,15 +1,19 @@
 let timerInterval;
 let seconds = 2; // 30 seconds timer
+let isTimerRunning = false;
 
 function startTimer() {
-    document.getElementById('startButton').style.display = 'none';
-    document.getElementById('stopButton').style.display = 'block';
-    timerInterval = setInterval(updateTimer, 1000);
+    if (!isTimerRunning) {
+        isTimerRunning = true;
+        timerInterval = setInterval(updateTimer, 1000);
+    }
 }
 
 function stopTimer() {
-    clearInterval(timerInterval);
-    resetTimer();
+    if (isTimerRunning) {
+        isTimerRunning = false;
+        clearInterval(timerInterval);
+    }
 }
 
 function updateTimer() {
@@ -29,8 +33,6 @@ function updateTimer() {
 
 function resetTimer() {
     clearInterval(timerInterval);
-    seconds = 30;
+    seconds = 2;
     document.getElementById('timer').textContent = '00:30';
-    document.getElementById('startButton').style.display = 'block';
-    document.getElementById('stopButton').style.display = 'none';
 }
