@@ -35,12 +35,9 @@ function updateTimer() {
 
         document.getElementById('timer').textContent = seconds;
     }
-
-  }
+}
 
 function changeButtonText() {
-    const startButton = document.getElementById('startButton');
-
     switch (buttonText) {
         case '1-2':
             buttonText = '1-3';
@@ -80,7 +77,7 @@ function changeButtonText() {
             break;
     }
 
-    startButton.textContent = buttonText;
+    document.getElementById('button1-2').textContent = buttonText; // Update the display button text
 }
 
 function getTimerValueFromButtonText(buttonText) {
@@ -88,3 +85,4 @@ function getTimerValueFromButtonText(buttonText) {
     const values = buttonText.split('-');
     return parseInt(values[0]) * 10 + parseInt(values[1]);
 }
+
