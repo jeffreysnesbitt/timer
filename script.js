@@ -26,21 +26,27 @@ function updateTimer() {
 
     if (seconds <= 0) {
         stopTimer();
-        changeRangeAndReset();
+        toggleRangeAndReset();
         return;
     }
 
     seconds--;
 }
 
-function changeRangeAndReset() {
-    changeRange();
-    startTimer(30);
+function toggleRangeAndReset() {
+    toggleRange();
+    startTimer(selectedTimer);
 }
 
-function changeRange() {
+function toggleRange() {
     rangeToggle = !rangeToggle;
     const rangeButton = document.getElementById('rangeButton');
     rangeButton.textContent = rangeToggle ? "1-2" : "1-3";
 }
+
+function startTimerWithToggle(duration) {
+    startTimer(duration);
+    toggleRange();
+}
+
 
