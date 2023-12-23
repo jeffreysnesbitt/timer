@@ -3,6 +3,11 @@ let seconds = 4;
 let isRunning = false;
 let buttonText = '1-2';
 
+function setTimer(timerValue) {
+    seconds = timerValue;
+    document.getElementById('timer').textContent = seconds;
+}
+
 function startTimer() {
     isRunning = true;
     timer = setInterval(updateTimer, 1000);
@@ -18,9 +23,9 @@ function updateTimer() {
         seconds--;
 
         if (seconds <= 0) {
-            seconds = 4;
-            stopTimer(); // Stop the timer when it resets
-            changeButtonText(); // Change the button text when the timer resets
+            seconds = buttonText.startsWith('2') ? 4 : 2;
+            stopTimer();
+            changeButtonText();
         }
 
         document.getElementById('timer').textContent = seconds;
