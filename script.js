@@ -1,11 +1,14 @@
 let timerInterval;
 let seconds = 0;
-let selectedTimer = 2; // Default timer duration in seconds
+let selectedTimer = 30; // Default timer duration in seconds
 let rangeCombinationIndex = 0;
 const rangeCombinations = ["1-2", "1-3", "1-4", "2-3", "2-4", "2-1", "3-4", "3-1", "3-2", "4-1", "4-2", "4-3"];
 
 function startTimer(duration) {
     selectedTimer = duration;
+    document.getElementById('timerOptions').style.display = 'none';
+    document.getElementById('rangeButton').style.display = 'block';
+    document.getElementById('stopButton').style.display = 'block';
     seconds = duration; // Set initial seconds to the specified duration
     updateTimer(); // Update the displayed timer immediately
     timerInterval = setInterval(updateTimer, 1000);
@@ -15,6 +18,9 @@ function stopTimer() {
     clearInterval(timerInterval);
     seconds = 0; // Reset the timer when stopped
     updateTimer(); // Update the displayed timer immediately
+    document.getElementById('timerOptions').style.display = 'block';
+    document.getElementById('rangeButton').style.display = 'none';
+    document.getElementById('stopButton').style.display = 'none';
 }
 
 function updateTimer() {
