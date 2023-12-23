@@ -26,11 +26,16 @@ function updateTimer() {
 
     if (seconds <= 0) {
         stopTimer();
-        toggleRangeAndResetTimer();
+        changeRangeAndReset();
         return;
     }
 
     seconds--;
+}
+
+function changeRangeAndReset() {
+    changeRange();
+    startTimer(30);
 }
 
 function changeRange() {
@@ -38,10 +43,4 @@ function changeRange() {
     const rangeButton = document.getElementById('rangeButton');
     rangeButton.textContent = rangeToggle ? "1-2" : "1-3";
 }
-
-function toggleRangeAndResetTimer() {
-    changeRange();
-    startTimer(30);
-}
-
 
