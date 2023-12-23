@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Additional styles for the button */
-        #startButton {
+        /* Additional styles for the buttons */
+        .timer-options button {
             cursor: pointer;
             background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
             font-size: 16px;
+            margin: 5px;
             border: none;
             border-radius: 5px;
         }
@@ -20,8 +21,14 @@
 </head>
 <body>
 
+<div class="timer-options">
+    <button onclick="setTimer(2)">2</button>
+    <button onclick="setTimer(4)">4</button>
+    <button onclick="resetTimer()">Reset</button>
+</div>
+
 <div class="timer-container">
-    <div id="timer">4</div>
+    <div id="timer"></div>
     <div id="startButton" onclick="startTimer()">1-2</div>
     <button id="stopButton" onclick="stopTimer()">Stop</button>
 </div>
@@ -29,4 +36,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
